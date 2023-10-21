@@ -28,6 +28,10 @@ int main()
 	}
 	
 	//sparse matrix
+	sparseMatrix[0][0] = r;
+    sparseMatrix[0][1] = c;
+    sparseMatrix[0][2] = size;
+	k=1;
 	for(int i = 0; i < r; i++){
 		for (int j = 0; j < c; j++){
 			 if (matrix[i][j] != 0)
@@ -42,7 +46,7 @@ int main()
 	}
 
   //print sparse matrix
-	for (int i=0; i<size; i++){
+	for (int i=0; i<size+1; i++){
         for (int j=0; j<3; j++){
 			printf("%d ", sparseMatrix[i][j]);
  
