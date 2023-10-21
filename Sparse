@@ -10,7 +10,7 @@ int main()
 	printf("enter number of column");
 	scanf("%d",&c);
 
-  //read matrix
+ 
 	for(int i=0;i<r;i++){
 		for(int j=0;j<c;j++){
 			printf("enter element of row %d and column %d : ",i+1,j+1);
@@ -18,7 +18,7 @@ int main()
 		}
 	}
 
-	//to find number of non zero elements
+	
 	for (int i = 0; i < r; i++){
 		 for (int j = 0; j < c; j++){
 			 if (matrix[i][j] != 0)
@@ -27,7 +27,7 @@ int main()
 	
 	}
 	
-	//sparse matrix
+	
 	sparseMatrix[0][0] = r;
     sparseMatrix[0][1] = c;
     sparseMatrix[0][2] = size;
@@ -45,7 +45,7 @@ int main()
            
 	}
 
-  //print sparse matrix
+  
 	for (int i=0; i<size+1; i++){
         for (int j=0; j<3; j++){
 			printf("%d ", sparseMatrix[i][j]);
