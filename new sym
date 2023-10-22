@@ -5,12 +5,12 @@ void sparce(int sr[100][3]){
     int i,j,k=1;
     printf("Enter total number of rows of sparse matrix :");
     scanf("%d",&sr[0][0]);
-    printf("Enter total number of colunm of sparse matrix :");
+    printf("Enter total number of col of sparse matrix :");
     scanf("%d",&sr[0][1]);
-    printf("Enter total number of non zero elements of sparse matrix :");
+    printf("Enter total number of non zero elements :");
     scanf("%d",&sr[0][2]);
             for(i=1;i<sr[0][2]+1;i++){
-                printf("Enter row coloum value :");
+                printf("Enter row,col,value :");
                 for(j=0;j<3;j++){
                        scanf("%d",&sr[i][j]);
                 }
