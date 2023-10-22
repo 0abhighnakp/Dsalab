@@ -4,10 +4,11 @@ int main()
 {	
 	int r,c,matrix[100][100],size = 0;
 	int sparseMatrix[100][3],k=0;
-	
-	printf("enter number of rows ");
+	float num,sparsity;
+   
+	printf("enter number of rows:");
 	scanf("%d",&r);
-	printf("enter number of column");
+	printf("enter number of column:");
 	scanf("%d",&c);
 
  
@@ -54,7 +55,12 @@ int main()
             
         printf("\n");
     }
+    num=r*c;
+    sparsity=1/num;
+    printf("Sparsity of a matrix : %f",sparsity);
     return 0;
+
+
         
         
 }
