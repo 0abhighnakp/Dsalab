@@ -1,42 +1,28 @@
 #include<stdio.h>
 
-void readSparsemat(int mat_normal[100][100],int r,int c)
+void sparce(int sr[100][3])
 {
-    int i=0,j=0;
-    for(i=0;i<r;i++)
-    {
-        for(j=0;j<c;j++)
-        {
-            scanf("%d",&mat_normal[i][j]);
-        }
-    }
-}
-
-int sparse(int mat_normal[100][100],int r,int c,int mat_tup[100][3])
-{
-   
-    int i,j,cnz=0,tr=0,tc=0;
-    for(i=0;i<r;i++)
-    {
-        for(j=0;j<c;j++)
-        {
-            if(mat_normal[i][j]!=0)
-            {
-                cnz++;
-                mat_tup[cnz][0]=i;
-                mat_tup[cnz][1]=j;
-                mat_tup[cnz][2]=mat_normal[i][j];
+    int i,j,k=1;
+    printf("Enter total number of rows of sparse matrix :");
+    scanf("%d",&sr[0][0]);
+    printf("Enter total number of colunm of sparse matrix :");
+    scanf("%d",&sr[0][1]);
+    printf("Enter total number of non zero elements of sparse matrix :");
+    scanf("%d",&sr[0][2]);
+            for(i=1;i<sr[0][2]+1;i++){
+                printf("Enter row coloum value :");
+                for(j=0;j<3;j++){
+                       scanf("%d",&sr[i][j]);
+                }
             }
-            
+        for(k=0;k<sr[0][2]+1;k++){
+            for(j=0;j<3;j++){
+                printf("%d",sr[k][j]);
+            }
+            printf("\n");
         }
-    }
-    mat_tup[0][0]=r;
-    mat_tup[0][1]=c;
-    mat_tup[0][2]=cnz;
-    tr=cnz+1;
-    //tc=3;
-    return tr;
     
+
 }
 
 void sum(int mat1[100][3],int mat2[100][3])
@@ -113,24 +99,12 @@ void sum(int mat1[100][3],int mat2[100][3])
 }
 void main()
 {
-    int mat1[100][100],r1,c1,mat2[100][100],r2,c2;
-    int mat1tup[100][3],mat2tup[100][3];
-    printf("\nFirst matrix:");
-    printf("\nEnter the no. of rows:");
-    scanf("%d",&r1);
-    printf("\nEnter the no. of columns:");
-    scanf("%d",&c1);
-    printf("Enter the elements\n");
-    readSparsemat(mat1,r1,c1);
-    printf("\nSecond matrix:");
-    printf("\nEnter the no. of rows:");
-    scanf("%d",&r2);
-    printf("\nEnter the no. of columns:");
-    scanf("%d",&c2);
-    printf("Enter the elements\n");
-    readSparsemat(mat2,r2,c2);
-    int tr1=sparse(mat1,r1,c1,mat1tup);
-    int tr2=sparse(mat2,r2,c2,mat2tup);
+    int mat1[100][3],mat2[100][3];
+    printf("Enter 1st Sparse Matrix");
+    sparce(mat1);
+    printf("Enter 2nd Sparse Matrix");
+    sparce(mat2);
+    
     printf("\nSum\n");
-    sum(mat1tup,mat2tup);
+    sum(mat1,mat2);
  }
