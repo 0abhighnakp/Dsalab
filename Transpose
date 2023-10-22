@@ -1,32 +1,42 @@
- #include<stdio.h>
+#include<stdio.h>
 
-
-void readSparsemat(int mat_nor[100][100],int r,int c)
+//to read matrix
+void sparce(int sr[100][3])
 {
-    int i=0,j=0;
-    for(i=0;i<r;i++)
-    {
-        for(j=0;j<c;j++)
-        {
-            scanf("%d",&mat_nor[i][j]);
+    int i,j,k=1;
+    printf("Enter total number of rows of sparse matrix :");
+    scanf("%d",&sr[0][0]);
+    printf("Enter total number of colunm of sparse matrix :");
+    scanf("%d",&sr[0][1]);
+    printf("Enter total number of non zero elements of sparse matrix :");
+    scanf("%d",&sr[0][2]);
+            for(i=1;i<sr[0][2]+1;i++){
+                printf("Enter row coloum value :");
+                for(j=0;j<3;j++){
+                       scanf("%d",&sr[i][j]);
+                }
+            }
+        for(k=0;k<sr[0][2]+1;k++){
+            for(j=0;j<3;j++){
+                printf("%d",sr[k][j]);
+            }
+            printf("\n");
         }
-    }
 }
-
-
-void transpose(int mat_trp[100][3])
-    {
-    
+//for transpose
+void transpose(int mat_tup[100][3])
+{
+    // Transpose
     int temp[100],i,j;
-    int tr=mat_trp[0][2];
+    int tr=mat_tup[0][2];
     for(i=0;i<tr;i++)
     {
-        temp[i]=mat_trp[i][0];
+        temp[i]=mat_tup[i][0];
     }
-    for(i=0;i<tr;i++)
+    for(i=0;i<tr;i++) // exchanging row and column indexes
     {
-        mat_trp[i][0]= mat_trp[i][1];
-         mat_trp[i][1]=temp[i];
+        mat_tup[i][0]= mat_tup[i][1];
+         mat_tup[i][1]=temp[i];
     }
     
     printf("\nThe Transpose is\n");
@@ -35,49 +45,15 @@ void transpose(int mat_trp[100][3])
         printf("\n");
         for(j=0;j<3;j++)
         {
-            printf("%d  ",mat_trp[i][j]);
+            printf("%d  ",mat_tup[i][j]);
         }
     }
     
 }
 
- 
-int sparse(int mat_nor[100][100],int r,int c,int mat_trp[100][3])
-{
-  
-   
-    int i,j,cnz=0,tr=0,tc=0;
-    for(i=0;i<r;i++)
-    {
-        for(j=0;j<c;j++)
-        {
-            if(mat_nor[i][j]!=0)
-            {
-                cnz++;
-                mat_trp[cnz][0]=i;
-                mat_trp[cnz][1]=j;
-                mat_trp[cnz][2]=mat_nor[i][j];
-            }
-            
-        }
-    }
-    mat_trp[0][0]=r;
-    mat_trp[0][1]=c;
-    mat_trp[0][2]=cnz;
-    tr=cnz+1;
-    return tr;
-}
 void main()
 {
-    int mat[100][100],r,c;
-    int mattrp[100][3];
-    
-    printf("\nEnter the no. of rows:");
-    scanf("%d",&r);
-    printf("\nEnter the no. of columns:");
-    scanf("%d",&c);
-    printf("Enter the elements\n");
-    readSparsemat(mat,r,c);
-    int tr1=sparse(mat,r,c,mattrp);
-    transpose(mattrp);
- }
+    int mat[100][3];
+    sparce(mat);
+    transpose(mat);
+}
