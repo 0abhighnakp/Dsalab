@@ -9,7 +9,7 @@ struct Node {
 
 void readpoly(struct Node** poly) {
     int i;
-    int cont;
+    char cont;
 	
 	do{
         struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
@@ -31,9 +31,9 @@ void readpoly(struct Node** poly) {
             }
             current->next = newNode;
         }
-       printf("\nDo you wanna add more terms?\n Type 1 for yes and 0 for no\n");
-       scanf("%d",&cont);
-    }while(cont!=0);
+       printf("\nDo you wanna add more terms?\n");
+       scanf("%s",&cont);
+    }while(cont!='n');
 }
 
 void display(struct Node* poly) {
